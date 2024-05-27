@@ -1,6 +1,9 @@
+import Footer from "@/components/partials/Footer";
+import Sidebar from "@/components/partials/Sidebar";
+import "@/styles/globals.css";
+import Providers from "@/utils/Providers";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +19,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Providers>
+          <main>
+            <Sidebar />
+            <div className="app">{children}</div>
+            <Footer />
+          </main>
+        </Providers>
+      </body>
     </html>
   );
 }
