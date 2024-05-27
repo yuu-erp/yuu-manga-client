@@ -1,4 +1,3 @@
-import Footer from "@/components/partials/Footer";
 import Sidebar from "@/components/partials/Sidebar";
 import "@/styles/globals.css";
 import Providers from "@/utils/Providers";
@@ -21,11 +20,27 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <main>
-            <Sidebar />
-            <div className="app">{children}</div>
-            <Footer />
-          </main>
+          <div className="react-root">
+            <div className="min-h-[100dvh] pointer-events-auto z-0 flex flex-row w-full">
+              <Sidebar />
+              <main className="flex flex-col items-start shrink grow">
+                <div className="flex flex-col w-[1050px] shrink grow">
+                  <div
+                    className="grow flex flex-col"
+                    style={{
+                      backfaceVisibility: "hidden",
+                    }}
+                  >
+                    <div className="min-h-full justify-between items-stretch bg-transparent flex flex-row grow w-full">
+                      <div className="z-[1] bg-black max-w-[600px] grow w-full mx-0 border-r-[1px] border-l-[1px] border-[#2f3336]">
+                        {children}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </main>
+            </div>
+          </div>
         </Providers>
       </body>
     </html>

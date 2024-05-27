@@ -2,17 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
+/* Custom Base Styles */
+@layer base {
+  :root {
+    --color-black: 0 0 0;
+  }
+
+  [data-theme="dark"] {
+    --bg-main: rgb(var(--color-black));
+  }
+  html {
+    @apply h-full;
+  }
   body {
     font-family: "Fira Sans", Arial, sans-serif;
-    @apply w-full min-h-screen overflow-x-hidden text-typography bg-background;
+    @apply w-full min-h-screen overflow-x-hidden text-white bg-black;
   }
 
   main {
     @apply overflow-x-hidden;
   }
+}
 
-  .app {
-    @apply min-h-screen;
-  }
+/* Custom Component Styles */
+@layer components {
 }
