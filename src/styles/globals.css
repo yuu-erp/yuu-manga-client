@@ -22,6 +22,10 @@
   main {
     @apply overflow-x-hidden;
   }
+
+  svg {
+    fill: currentColor;
+  }
 }
 
 /* Custom Component Styles */
